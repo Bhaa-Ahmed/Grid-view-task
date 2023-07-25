@@ -1,0 +1,31 @@
+<main class="container">
+  <select name="dropDown" id="dropDown" [formControl]="dropbox" class="select">
+    <option value="" selected disabled>Select a Country</option>
+    <option *ngFor="let country of countries" [value]="country">
+      {{ country }}
+    </option>
+  </select>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data" class="table-row">
+        <td>{{ item.countryName }}</td>
+        <td>
+          <button class="btn btn-hipster">Edit</button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="delete(item.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>
